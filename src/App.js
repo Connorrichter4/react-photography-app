@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header';
+import { Route, Link } from 'react-router-dom';
+import Image from './components/ImagePage/ImagePage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// const url = 'https://pixabay.com/api/?key=16257314-59ee65c49e224e967ccf64091'
+	// fetch(url)
+	//   .then(response => response.json())
+	//   .then(response => {
+	//     console.log(response)
+	//   })
+	return (
+		<>
+			<div>
+				<Link to='/'>
+					<Header />
+				</Link>
+				<Link to='/image'>
+					<h1>Photos</h1>
+				</Link>
+				<h1>Image Page</h1>
+			</div>
+			<main>
+				<Route path='/' exact={true} />
+				<Route path='/image' component={Image} />
+			</main>
+		</>
+	);
 }
 
 export default App;
