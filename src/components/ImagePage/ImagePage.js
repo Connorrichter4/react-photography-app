@@ -1,17 +1,35 @@
 import React from 'react';
+import './ImagePage.css';
 
 function ImagePage(props) {
-	console.log(props)
-	const currentImage = props.images.forEach(image => {
-		if(image.id === parseInt(props.id)){
-			console.log(image.id)
-			return {image};
+	let currentImage = {};
+	props.images.forEach((image) => {
+		if (image.id === parseInt(props.id)) {
+			currentImage = image;
 		}
-	})
-	console.log(currentImage)
+	});
+	console.log(currentImage);
 	return (
 		<>
-			<div>This is the Image page</div>
+			<div className='image-container'>
+				<img className='single-image' src={currentImage.largeImageURL} alt='' />
+				<div className='image-info'>
+					<div className='user-name'>
+						<h1>{currentImage.user}</h1>
+						<img
+							className='user-image'
+							src={currentImage.userImageURL}
+							alt=''
+						/>
+					</div>
+					<div className='image-tags'>
+						<p>Views: <span className='info'>{currentImage.views}</span> </p>
+						<p>Favorites: <span className='info'>{currentImage.favorites}</span> </p>
+						<p>Downloads: <span className='info'>{currentImage.downloads}</span> </p>
+						<p>Tags: <span className='info'>{currentImage.tags}</span> </p>
+					</div>
+				</div>
+			</div>
 		</>
 	);
 }

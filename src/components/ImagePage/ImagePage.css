@@ -1,0 +1,53 @@
+.single-image {
+	width: 70%;
+}
+.user-image {
+    width: 50px;
+    margin-left: 1rem;
+}
+.user-name {
+    display: flex;
+    background: rgb(82, 82, 82);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+h1 {
+    font-size: 20px;
+}
+p {
+    font-size: 16px;
+    color: rgb(111, 111, 111)
+}
+.image-info {
+    margin: 10px;
+}
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+.info {
+    font-weight: 600;
+    color: black;
+}
+
+@media(max-width: 800px){
+    .single-image {
+        width: 50%;
+    }
+}
+
+@media(max-width: 600px) {
+    .image-container{
+        flex-direction: column;
+    }
+    .single-image {
+        width: 70%
+    }
+    .image-info {
+        width: 70%;
+    }
+}
