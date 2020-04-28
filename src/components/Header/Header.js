@@ -8,7 +8,7 @@ function Header(props) {
         paddingTop: '15rem',
         paddingBottom: '5rem',
 		backgroundImage:
-			'url(https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)',
+			'url(https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg)',
 		backgroundSize: 'cover',
 		backgroundPosition: 'center',
 	};

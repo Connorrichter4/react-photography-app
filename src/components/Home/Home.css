@@ -1,6 +1,22 @@
-main {
-    border: solid red;
-    width: 90vw;
-	max-width: 800px;
-	margin: 0 auto;
+
+.home-image {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.gallery {
+    column-count: 2;
+    margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 900px) {
+    .gallery {
+        column-count: 3;
+    }
 }

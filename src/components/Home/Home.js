@@ -1,14 +1,18 @@
 import React from 'react';
 import './Home.css';
+import Photo from '../Photos/Photo';
 import { Link } from 'react-router-dom';
-import Photos from '../Photos/Photo';
 
-function Home() {
+
+function Home({ images }) {
 	return (
-		<main>
-			<div className='home-page'>This is the homepage</div>
-			<Link to='/image'>Photos Go Here</Link>
-		</main>
+		<div className='gallery'>
+            {images.map((image) => (
+                <Link to={'/image/'+image.id} key={image.id}>
+                    <img className='home-image' src={image.largeImageURL} alt="" />
+                </Link>
+            ))}
+		</div>
 	);
 }
 
