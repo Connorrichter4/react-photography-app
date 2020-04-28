@@ -11,26 +11,51 @@ function App() {
 
 	const [searchOptions, setSearchOptions] = useState({
 		key: process.env.REACT_APP_PHOTO_KEY,
+		type: 'photo',
+		limit: 50,
 	});
 
+	const [searchString, setSearchString] = useState('');
+
 	useEffect(() => {
-		getImages();
+		getImages(searchString);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	function getImages() {
-		const url = `https://pixabay.com/api/?key=${searchOptions.key}`;
+	function getImages(searchString) {
+		const url = `https://pixabay.com/api/?key=${searchOptions.key}&q=${searchString}&image_type=${searchOptions.type}&per_page=${searchOptions.limit}`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
+				console.log(url);
 				setImages(response.hits);
 			});
 	}
-	console.log(images);
+
+	function handleChange(event) {
+		setSearchString(event.target.value);
+	}
+
+	function handleSubmit(event) {
+		event.preventDefault();
+		getImages(searchString);
+	}
 
 	return (
 		<>
-			<Route path='*' component={Header} />
+			<Route
+				path='*'
+				render={(routerProps) => {
+					return (
+						<Header
+							pathname={routerProps.location.pathname}
+							handleChange={handleChange}
+							handleSubmit={handleSubmit}
+							searchString={searchString}
+						/>
+					);
+				}}
+			/>
 			<main>
 				<Route
 					path='/'
