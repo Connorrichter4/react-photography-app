@@ -16,15 +16,20 @@ function Header(props) {
 		<header style={props.pathname === '/' ? headerStyles : {}}>
 			<div className='header-container'>
 				{props.pathname !== '/' && (
-					<Link to='/' className='home-button'>
-						Home
-					</Link>
+					<>
+						<Link to='/' className='home-button'>
+							Home
+						</Link>
+						{/* <Link to={`/results/${props.searchString}`}>Back to Search Results</Link> */}
+					</>
 				)}
-				<SearchBar
-					handleChange={props.handleChange}
-					handleSubmit={props.handleSubmit}
-					searchString={props.searchString}
-				/>
+				{/* {props.pathname === '/' && ( */}
+					<SearchBar
+						handleChange={props.handleChange}
+						handleSubmit={props.handleSubmit}
+						searchString={props.searchString}
+					/>
+				{/* )} */}
 			</div>
 		</header>
 	);

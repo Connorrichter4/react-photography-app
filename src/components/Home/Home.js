@@ -5,15 +5,13 @@ import { useEffect } from 'react';
 
 function Home({ images, searchString, getImages }) {
     console.log(searchString)
-    console.log(images)
-    console.log(getImages)
 	useEffect(() => {
 		if(getImages!== undefined){
             getImages(searchString)
         }
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [searchString]);
 	return (
 		<div className='gallery'>
 			{images.map((image) => (

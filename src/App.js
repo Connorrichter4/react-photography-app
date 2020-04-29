@@ -6,17 +6,17 @@ import Header from './components/Header/Header';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-
 function App() {
 	const [images, setImages] = useState([]);
 
 	const [searchOptions, setSearchOptions] = useState({
 		key: process.env.REACT_APP_PHOTO_KEY,
 		type: 'photo',
-		limit: 10,
+		limit: 20,
 	});
 
-  const [searchString, setSearchString] = useState('');
+	const [searchString, setSearchString] = useState('');
+	const [lastSearch, setLastSearch] = useState('');
 
 	useEffect(() => {
 		getImages(searchString);
@@ -29,7 +29,6 @@ function App() {
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				// console.log(url);
 				setImages(response.hits);
 				setSearchString('');
 			});
@@ -40,9 +39,10 @@ function App() {
 	}
 
 	function handleSubmit(event) {
-    event.preventDefault();
+		event.preventDefault();
+		setLastSearch(searchString);
+		console.log(lastSearch);
 		getImages(searchString);
-		console.log(searchString);
 	}
 
 	return (
@@ -74,12 +74,21 @@ function App() {
 						return <Image id={routerProps.match.params.id} images={images} />;
 					}}
 				/>
-        <Route
-          path='/results/:string'
-          render={(routerProps) => {
-            return <Home images={images} searchString={searchString} getImages={getImages} />
-          }}
-        />
+				<Route
+					path='/results/:string'
+					render={(routerProps) => {
+            console.log(routerProps)
+						return (
+							<Home
+								images={images}
+								searchString={routerProps.match.params.string}
+								lastSearch={lastSearch}
+								setLastSearch={setLastSearch}
+								getImages={getImages}
+							/>
+						);
+					}}
+				/>
 			</main>
 		</>
 	);

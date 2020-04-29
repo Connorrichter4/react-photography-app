@@ -14,9 +14,7 @@ function SearchBar(props) {
 				value={searchString}
 			/>
 			{/* <button type='submit' className='submit'> */}
-				<Link to={`/results/${searchString}`} className='submit'>
-					Submit
-				</Link>
+				<Link to={`/results/${searchString}`} className='submit'>Submit</Link>
 			{/* </button> */}
 		</form>
 	);
