@@ -3,13 +3,13 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-function Home({ images, searchString, getImages }) {
+function Home({ images, searchString, getImages, lastSearch, setLastSearch }) {
     console.log(searchString)
 	useEffect(() => {
 		if(getImages!== undefined){
             getImages(searchString)
+            setLastSearch(searchString);
         }
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchString]);
 	return (

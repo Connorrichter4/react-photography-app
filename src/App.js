@@ -3,7 +3,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import Image from './components/ImagePage/ImagePage';
 import Header from './components/Header/Header';
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -38,11 +38,13 @@ function App() {
 		setSearchString(event.target.value);
 	}
 
+  let history = useHistory();
 	function handleSubmit(event) {
-		event.preventDefault();
+    event.preventDefault();
 		setLastSearch(searchString);
 		console.log(lastSearch);
-		getImages(searchString);
+    getImages(searchString);
+    history.push(`/results/${searchString}`)
 	}
 
 	return (
@@ -64,8 +66,16 @@ function App() {
 				<Route
 					path='/'
 					exact
-					render={() => {
-						return <Home images={images} />;
+					render={(routerProps) => {
+						return (
+							<Home
+								images={images}
+								// searchString={routerProps.match.params.string}
+								// getImages={getImages}
+								// lastSearch={lastSearch}
+								// setLastSearch={setLastSearch}
+							/>
+						);
 					}}
 				/>
 				<Route
@@ -82,9 +92,9 @@ function App() {
 							<Home
 								images={images}
 								searchString={routerProps.match.params.string}
-								lastSearch={lastSearch}
-								setLastSearch={setLastSearch}
-								getImages={getImages}
+                getImages={getImages}
+                lastSearch={lastSearch}
+                setLastSearch={setLastSearch}
 							/>
 						);
 					}}
