@@ -10,6 +10,12 @@
     margin-top: 1rem;
 }
 
+.no-images{
+    font-size: 26px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
 @media (max-width: 600px) {
     .gallery {
         column-count: 1;
