@@ -1,0 +1,37 @@
+.similar-image {
+    width: 90%;
+    box-shadow: 5px 5px 20px gray;
+}
+.related-images{
+    margin-bottom: 2rem;
+}
+
+.related-image-grid {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    .related-image-grid {
+        display: block;
+        column-count: 2;
+        width: 80%;
+    }
+    .similar-image {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .related-image-grid {
+        column-count: 1;
+        width: 50%;
+    }
+    .similar-image {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}

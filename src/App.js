@@ -13,6 +13,7 @@ function App() {
 		key: process.env.REACT_APP_PHOTO_KEY,
 		type: 'photo',
 		limit: 20,
+		url: 'https://pixabay.com/api/',
 	});
 
 	const [searchString, setSearchString] = useState('');
@@ -25,10 +26,11 @@ function App() {
 	}, []);
 
 	function getImages(searchString) {
-		const url = `https://pixabay.com/api/?key=${searchOptions.key}&q=${searchString}&image_type=${searchOptions.type}&per_page=${searchOptions.limit}`;
+		let url = `${searchOptions.url}?key=${searchOptions.key}&q=${searchString}&image_type=${searchOptions.type}&per_page=${searchOptions.limit}`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
+				console.log(url)
 				setImages(response.hits);
 				setSearchString('');
 			});
@@ -38,14 +40,13 @@ function App() {
 		setSearchString(event.target.value);
 	}
 
-  let history = useHistory();
-  console.log(history)
+	let history = useHistory();
 	function handleSubmit(event) {
-    event.preventDefault();
+		event.preventDefault();
 		// setLastSearch(searchString);
 		// console.log(lastSearch);
-    getImages(searchString);
-    history.push(`/results/${searchString}`)
+		getImages(searchString);
+		history.push(`/results/${searchString}`);
 	}
 
 	return (
@@ -68,11 +69,7 @@ function App() {
 					path='/'
 					exact
 					render={(routerProps) => {
-						return (
-							<Home
-								images={images}
-							/>
-						);
+						return <Home images={images} />;
 					}}
 				/>
 				<Route
@@ -88,9 +85,9 @@ function App() {
 							<Home
 								images={images}
 								searchString={routerProps.match.params.string}
-                getImages={getImages}
-                // lastSearch={lastSearch}
-                // setLastSearch={setLastSearch}
+								getImages={getImages}
+								// lastSearch={lastSearch}
+								// setLastSearch={setLastSearch}
 							/>
 						);
 					}}
