@@ -6,7 +6,8 @@ import Header from './components/Header/Header';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-function App(props) {
+
+function App() {
 	const [images, setImages] = useState([]);
 
 	const [searchOptions, setSearchOptions] = useState({
@@ -15,7 +16,7 @@ function App(props) {
 		limit: 10,
 	});
 
-	const [searchString, setSearchString] = useState('');
+  const [searchString, setSearchString] = useState('');
 
 	useEffect(() => {
 		getImages(searchString);
@@ -40,7 +41,6 @@ function App(props) {
 
 	function handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target)
 		getImages(searchString);
 		console.log(searchString);
 	}
@@ -74,6 +74,12 @@ function App(props) {
 						return <Image id={routerProps.match.params.id} images={images} />;
 					}}
 				/>
+        <Route
+          path='/results/:string'
+          render={(routerProps) => {
+            return <Home images={images} searchString={searchString} getImages={getImages} />
+          }}
+        />
 			</main>
 		</>
 	);
