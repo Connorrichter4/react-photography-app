@@ -8,7 +8,6 @@ function ImagePage(props) {
 			currentImage = image;
 		}
 	});
-	console.log(currentImage);
 	return (
 		<>
 			<div className='image-container'>

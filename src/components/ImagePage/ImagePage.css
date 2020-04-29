@@ -1,5 +1,6 @@
 .single-image {
-	width: 70%;
+    width: 70%;
+    box-shadow: 5px 5px 20px gray;
 }
 .user-image {
     width: 50px;
@@ -21,7 +22,10 @@ p {
     color: rgb(111, 111, 111)
 }
 .image-info {
+    padding: 10px;
     margin: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px gray;
 }
 .image-container {
     display: flex;

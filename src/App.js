@@ -6,19 +6,20 @@ import Header from './components/Header/Header';
 import { Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-function App() {
+function App(props) {
 	const [images, setImages] = useState([]);
 
 	const [searchOptions, setSearchOptions] = useState({
 		key: process.env.REACT_APP_PHOTO_KEY,
 		type: 'photo',
-		limit: 50,
+		limit: 10,
 	});
 
 	const [searchString, setSearchString] = useState('');
 
 	useEffect(() => {
 		getImages(searchString);
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -27,8 +28,9 @@ function App() {
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(url);
+				// console.log(url);
 				setImages(response.hits);
+				setSearchString('');
 			});
 	}
 
@@ -37,8 +39,10 @@ function App() {
 	}
 
 	function handleSubmit(event) {
-		event.preventDefault();
+    event.preventDefault();
+    console.log(event.target)
 		getImages(searchString);
+		console.log(searchString);
 	}
 
 	return (
