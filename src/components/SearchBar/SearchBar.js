@@ -9,13 +9,16 @@ function SearchBar(props) {
 			<input
 				type='text'
 				name='searchString'
+				required
 				placeholder='Search'
 				onChange={handleChange}
 				value={searchString}
 			/>
-			<Link to={`/results/${searchString}`} className='submit'>
+			{/* <Link to={`/results/${searchString}`} className='submit'> */}
+			<button type='submit' className='submit'>
 				Submit
-			</Link>
+			</button>
+			{/* </Link> */}
 		</form>
 	);
 }

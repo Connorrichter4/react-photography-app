@@ -3,8 +3,7 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-function Home({ images, searchString, getImages }) {
-	console.log(searchString);
+function Home({ images, searchString, getImages, setLastSearch, lastSearch }) {
 	useEffect(() => {
 		if (getImages !== undefined) {
 			getImages(searchString);
@@ -14,7 +13,6 @@ function Home({ images, searchString, getImages }) {
 	if (!images.length) {
 		return <div className='no-images'>No Images Found!</div>;
 	}
-	
 	return (
 		<div className='gallery'>
 			{images.map((image) => (

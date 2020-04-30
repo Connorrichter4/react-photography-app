@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 function App() {
 	const [images, setImages] = useState([]);
 
-	const [searchOptions, setSearchOptions] = useState({
+	const [searchOptions] = useState({
 		key: process.env.REACT_APP_PHOTO_KEY,
 		type: 'photo',
 		limit: 20,
@@ -17,20 +17,22 @@ function App() {
 	});
 
 	const [searchString, setSearchString] = useState('');
-	// const [lastSearch, setLastSearch] = useState('');
+	const [lastSearch, setLastSearch] = useState('');
 
 	useEffect(() => {
 		getImages(searchString);
-
+		
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	function getImages(searchString) {
-		let url = `${searchOptions.url}?key=${searchOptions.key}&q=${searchString}&image_type=${searchOptions.type}&per_page=${searchOptions.limit}`;
+		let url =
+			searchString === ''
+				? `${searchOptions.url}?key=${searchOptions.key}`
+				: `${searchOptions.url}?key=${searchOptions.key}&q=${searchString}&image_type=${searchOptions.type}&per_page=${searchOptions.limit}`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
-				console.log(url)
 				setImages(response.hits);
 				setSearchString('');
 			});
@@ -43,8 +45,8 @@ function App() {
 	let history = useHistory();
 	function handleSubmit(event) {
 		event.preventDefault();
-		// setLastSearch(searchString);
-		// console.log(lastSearch);
+		setLastSearch(searchString);
+		
 		getImages(searchString);
 		history.push(`/results/${searchString}`);
 	}
@@ -69,7 +71,14 @@ function App() {
 					path='/'
 					exact
 					render={(routerProps) => {
-						return <Home images={images} />;
+						return (
+							<Home
+								images={images}
+								searchString={searchString}
+								lastSearch={lastSearch}
+								setLastSearch={setLastSearch}
+							/>
+						);
 					}}
 				/>
 				<Route
@@ -86,8 +95,8 @@ function App() {
 								images={images}
 								searchString={routerProps.match.params.string}
 								getImages={getImages}
-								// lastSearch={lastSearch}
-								// setLastSearch={setLastSearch}
+								lastSearch={lastSearch}
+								setLastSearch={setLastSearch}
 							/>
 						);
 					}}

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import './RelatedPhotos.css';
 
 function RelatedPhotos({ images }) {
-	console.log(images);
 	const similar = [];
 	for (let i = 0; i < 4; i++) {
 		similar[i] = images[i];
@@ -16,7 +15,6 @@ function RelatedPhotos({ images }) {
 					<Link to={'/image/' + image.id} key={image.id}>
 						<img
 							className='similar-image'
-							key={image.id}
 							src={image.largeImageURL}
 							alt=''
 						/>
