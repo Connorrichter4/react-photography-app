@@ -28,7 +28,7 @@ function App() {
 		let url =
 			searchString === ''
 				? `${searchOptions.url}?key=${searchOptions.key}`
-				: `${searchOptions.url}?key=${searchOptions.key}&q=${searchString}&image_type=${searchOptions.type}&per_page=${searchOptions.limit}`;
+				: `${searchOptions.url}?key=${searchOptions.key}&q=${searchString}&image_type=${searchOptions.type}&per_page=${searchOptions.limit}&safesearch=true`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {

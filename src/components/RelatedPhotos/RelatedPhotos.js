@@ -11,7 +11,7 @@ function RelatedPhotos({tags, searchOptions}) {
 	}, [tags]);
 
 	function getImage(tags) {
-		const url = `${searchOptions.url}?key=${searchOptions.key}&q=${tags}&page=2&per_page=4`;
+		const url = `${searchOptions.url}?key=${searchOptions.key}&q=${tags}&page=2&per_page=4&safesearch=true`;
 		fetch(url)
 			.then((response) => response.json())
 			.then((response) => {
@@ -20,6 +20,9 @@ function RelatedPhotos({tags, searchOptions}) {
 	}
 	if (!similarImages) {
 		return null;
+	}
+	if(!similarImages.length){
+		return <p className='no-related-images'>No Related Images Found</p>;
 	}
 
 	return (

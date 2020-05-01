@@ -13,6 +13,12 @@
     align-items: center;
 }
 
+.no-related-images{
+    font-size: 16px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
 @media (max-width: 800px) {
     .related-image-grid {
         display: block;
