@@ -1,6 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
-import { Link } from 'react-router-dom';
+
 
 function SearchBar(props) {
 	const { handleSubmit, handleChange, searchString } = props;
@@ -14,11 +14,11 @@ function SearchBar(props) {
 				onChange={handleChange}
 				value={searchString}
 			/>
-			{/* <Link to={`/results/${searchString}`} className='submit'> */}
+			
 			<button type='submit' className='submit'>
 				Submit
 			</button>
-			{/* </Link> */}
+			
 		</form>
 	);
 }

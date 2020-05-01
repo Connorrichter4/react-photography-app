@@ -3,7 +3,6 @@ import Related from '../RelatedPhotos/RelatedPhotos';
 import './ImagePage.css';
 
 function ImagePage(props) {
-	console.log(props);
 	let currentImage = {};
 	props.images.forEach((image) => {
 		if (image.id === parseInt(props.id)) {

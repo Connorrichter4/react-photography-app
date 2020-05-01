@@ -17,7 +17,7 @@ function App() {
 	});
 
 	const [searchString, setSearchString] = useState('');
-	const [lastSearch, setLastSearch] = useState('');
+	
 
 	useEffect(() => {
 		getImages(searchString);
@@ -45,7 +45,6 @@ function App() {
 	let history = useHistory();
 	function handleSubmit(event) {
 		event.preventDefault();
-		setLastSearch(searchString);
 		
 		getImages(searchString);
 		history.push(`/results/${searchString}`);
@@ -75,8 +74,6 @@ function App() {
 							<Home
 								images={images}
 								searchString={searchString}
-								lastSearch={lastSearch}
-								setLastSearch={setLastSearch}
 							/>
 						);
 					}}
@@ -95,8 +92,6 @@ function App() {
 								images={images}
 								searchString={routerProps.match.params.string}
 								getImages={getImages}
-								lastSearch={lastSearch}
-								setLastSearch={setLastSearch}
 							/>
 						);
 					}}
