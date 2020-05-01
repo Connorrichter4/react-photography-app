@@ -14,6 +14,7 @@ header {
 
 .home-button {
 	text-decoration: none;
+	text-align: center;
 	color: black;
 	font-size: 1.1rem;
 	padding: 0.25rem 1rem;
