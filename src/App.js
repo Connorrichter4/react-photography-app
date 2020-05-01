@@ -9,19 +9,18 @@ import { useEffect, useState } from 'react';
 function App() {
 	const [images, setImages] = useState([]);
 
-	const [searchOptions] = useState({
+	const searchOptions = {
 		key: process.env.REACT_APP_PHOTO_KEY,
 		type: 'photo',
 		limit: 20,
 		url: 'https://pixabay.com/api/',
-	});
+	};
 
 	const [searchString, setSearchString] = useState('');
-	
 
 	useEffect(() => {
 		getImages(searchString);
-		
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -45,7 +44,7 @@ function App() {
 	let history = useHistory();
 	function handleSubmit(event) {
 		event.preventDefault();
-		
+
 		getImages(searchString);
 		history.push(`/results/${searchString}`);
 	}
@@ -70,18 +69,17 @@ function App() {
 					path='/'
 					exact
 					render={(routerProps) => {
-						return (
-							<Home
-								images={images}
-								searchString={searchString}
-							/>
-						);
+						return <Home images={images} searchString={searchString} />;
 					}}
 				/>
 				<Route
 					path='/image/:id'
 					render={(routerProps) => {
-						return <Image id={routerProps.match.params.id} images={images} />;
+						return (
+							<>
+								<Image id={routerProps.match.params.id} />
+							</>
+						);
 					}}
 				/>
 				<Route
