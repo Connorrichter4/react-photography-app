@@ -10,28 +10,6 @@ https://connor-react-photography-app.herokuapp.com/
 
 My project is a photography website. Users can see a variety of photos find more information about the photos. In the future, I would like to add features for users to submit there own photos and save photos they enjoy.
 
-## Wireframes
-
-### Home
-
-![image](https://media.git.generalassemb.ly/user/27367/files/f4692680-8804-11ea-8cca-79b026b9a5a7)
-
-### Image Info Page
-
-![image](https://media.git.generalassemb.ly/user/27367/files/1c588a00-8805-11ea-9516-c0341e865e6e)
-
-### MVP User Stories
-
-- A user will be able to scroll through a variety of images.
-
-- A user will be able to search and find similar photos
-
-- A user will be able to see more information about a photo including the likes, views, and downloads
-
-## Component Hierarchy
-
-![image](https://media.git.generalassemb.ly/user/27367/files/85400200-8805-11ea-981a-11a4e13f0d10)
-
 ## API
 
 https://pixabay.com/api/docs/
@@ -57,3 +35,25 @@ https://pixabay.com/api/docs/
 - Make contributions
 - Push changes to GitHub
 - Create a Pull Request on the original project
+
+## Wireframes
+
+### Home
+
+![image](https://media.git.generalassemb.ly/user/27367/files/f4692680-8804-11ea-8cca-79b026b9a5a7)
+
+### Image Info Page
+
+![image](https://media.git.generalassemb.ly/user/27367/files/1c588a00-8805-11ea-9516-c0341e865e6e)
+
+### MVP User Stories
+
+- A user will be able to scroll through a variety of images.
+
+- A user will be able to search and find similar photos
+
+- A user will be able to see more information about a photo including the likes, views, and downloads
+
+## Component Hierarchy
+
+![Homepage](https://user-images.githubusercontent.com/58124052/80932264-62bd6400-8d84-11ea-908a-28b6e8675f5b.png)
