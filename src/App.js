@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import { Route, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+// Hou comment: nice job using functional components and hooks throughout your codebase! Also, your code looks clean and well-formatted overall. Great job on that!
 function App() {
 	const [images, setImages] = useState([]);
 
@@ -40,7 +41,7 @@ function App() {
 	function handleChange(event) {
 		setSearchString(event.target.value);
 	}
-
+	// Hou comment: nice job learning and applying the useHistory hook for your app!
 	let history = useHistory();
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -51,6 +52,7 @@ function App() {
 
 	return (
 		<>
+			{/* Hou comment: creative solution to move Header into its own component! */}
 			<Route
 				path='*'
 				render={(routerProps) => {

@@ -10,7 +10,6 @@ function ImagePage(props) {
 	const [image, setImage] = useState(null);
 	useEffect(() => {
 		getImage(props.id);
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.id]);
 

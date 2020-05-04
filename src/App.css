@@ -1,3 +1,6 @@
+/* Hou comment: Consider using class selectors instead of tag selectors for styling purposes. Here's why: https://frontstuff.io/you-need-to-stop-targeting-tags-in-css. For your next project, consider using CSS modules to style your components as well to prevent clashes. Here's how: https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+*/
+
 main {
     width: 90vw;
 	max-width: 1200px;

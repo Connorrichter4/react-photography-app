@@ -4,6 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import './Header.css';
 
 function Header(props) {
+	// Hou comment: consider applying the styles by toggling a class on the header on line 17
 	const headerStyles = {
 		paddingTop: '15rem',
 		paddingBottom: '5rem',

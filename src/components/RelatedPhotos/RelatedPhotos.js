@@ -6,7 +6,6 @@ function RelatedPhotos({tags, searchOptions}) {
 	const [similarImages, setSimilarImages] = useState([]);
 	useEffect(() => {
 		getImage(tags);
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tags]);
 
@@ -31,6 +30,7 @@ function RelatedPhotos({tags, searchOptions}) {
 			<div className='related-image-grid'>
 				{similarImages.map((image) => (
 					<Link to={'/image/' + image.id} key={image.id}>
+						{/* Hou comment: it's considered an SEO best practice to include a non-empty alt string to describe your images */}
 						<img className='similar-image' src={image.largeImageURL} alt='' />
 					</Link>
 				))}
