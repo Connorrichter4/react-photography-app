@@ -28,6 +28,10 @@ My project is a photography website. Users can see a variety of photos find more
 
 - A user will be able to see more information about a photo including the likes, views, and downloads
 
+## Component Hierarchy
+
+![image](https://media.git.generalassemb.ly/user/27367/files/85400200-8805-11ea-981a-11a4e13f0d10)
+
 ## API
 
 https://pixabay.com/api/docs/
@@ -42,18 +46,14 @@ https://pixabay.com/api/docs/
 
 ## Getting Started/Installation Instructions
 
-- Fork and Clone this repository 
+- Fork and Clone this repository
 - Change into directory and create a new branch to contribute to this project
 - Run npm install and then npm start
 - The project should open up in your browser
 
 ## Contribution Guidelines
 
-- Create a new branch 
-- Make contributions 
-- Push changes to GitHub 
+- Create a new branch
+- Make contributions
+- Push changes to GitHub
 - Create a Pull Request on the original project
-
-## Component Hierarchy
-
-![image](https://media.git.generalassemb.ly/user/27367/files/85400200-8805-11ea-981a-11a4e13f0d10)
