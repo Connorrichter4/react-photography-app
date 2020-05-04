@@ -32,7 +32,11 @@ function ImagePage(props) {
 				<div className='image-info'>
 					<div className='user-name'>
 						<h1>{image.user}</h1>
-						<img className='user-image' src={image.userImageURL} alt='' />
+						<img
+							className='user-image'
+							src={image.userImageURL}
+							alt={image.tags}
+						/>
 					</div>
 					<div className='image-tags'>
 						<p>

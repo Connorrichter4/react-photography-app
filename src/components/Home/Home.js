@@ -3,7 +3,7 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
-function Home({ images, searchString, getImages, setLastSearch, lastSearch }) {
+function Home({ images, searchString, getImages }) {
 	useEffect(() => {
 		if (getImages !== undefined) {
 			getImages(searchString);
@@ -17,7 +17,7 @@ function Home({ images, searchString, getImages, setLastSearch, lastSearch }) {
 		<div className='gallery'>
 			{images.map((image) => (
 				<Link to={'/image/' + image.id} key={image.id}>
-					<img className='home-image' src={image.largeImageURL} alt='' />
+					<img className='home-image' src={image.largeImageURL} alt={image.tags} />
 				</Link>
 			))}
 		</div>

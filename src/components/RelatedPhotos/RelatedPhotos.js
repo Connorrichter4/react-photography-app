@@ -31,7 +31,7 @@ function RelatedPhotos({tags, searchOptions}) {
 			<div className='related-image-grid'>
 				{similarImages.map((image) => (
 					<Link to={'/image/' + image.id} key={image.id}>
-						<img className='similar-image' src={image.largeImageURL} alt='' />
+						<img className='similar-image' src={image.largeImageURL} alt={image.tags} />
 					</Link>
 				))}
 			</div>
