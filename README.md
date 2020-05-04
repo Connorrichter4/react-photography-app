@@ -10,6 +10,15 @@ https://connor-react-photography-app.herokuapp.com/
 
 My project is a photography website. Users can see a variety of photos find more information about the photos. In the future, I would like to add features for users to submit there own photos and save photos they enjoy.
 
+## Examples
+
+Home Screen
+![Screen Shot 2020-05-04 at 8 25 01 AM](https://user-images.githubusercontent.com/58124052/80970617-0dfc0680-8de1-11ea-8ac8-9c7eec266f0a.png)
+Search Screen
+![Screen Shot 2020-05-04 at 8 24 27 AM](https://user-images.githubusercontent.com/58124052/80970611-0b99ac80-8de1-11ea-9e28-0f1a320a4756.png)
+Selected Photo Screen
+![Screen Shot 2020-05-04 at 8 23 24 AM](https://user-images.githubusercontent.com/58124052/80970603-08062580-8de1-11ea-8bcd-7db0cbed8a36.png)
+
 ## API
 
 https://pixabay.com/api/docs/
