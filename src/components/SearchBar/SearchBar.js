@@ -1,7 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
 
-
 function SearchBar(props) {
 	const { handleSubmit, handleChange, searchString } = props;
 	return (
@@ -10,15 +9,14 @@ function SearchBar(props) {
 				type='text'
 				name='searchString'
 				required
-				placeholder='Search'
+				placeholder='Search for Images'
 				onChange={handleChange}
 				value={searchString}
 			/>
-			
+
 			<button type='submit' className='submit'>
 				Submit
 			</button>
-			
 		</form>
 	);
 }
